@@ -1,0 +1,1 @@
+{"ok":true,"parent":"GtfUcv9dMRjaFnY72qUpXM3ui9nSMmKJe1k7Kfn6951W","ephemeral":"746LsihrK2rGfFQ7PKsYD3VjYP9eSzwMsn4jkYZmitr5","vault":"66nJJmkTfGHtV7DtjykePmoJwp4RWthW3i3zgdJM6fET","tx_or_error":"oFJxxNSbErhYUeQ9wvj9YebjfVdAGqJgh6yEHWjhdM3kdrZmxXhwKcgpEKCKBKLpxQKCMrhtJTwJ1gy7Tt37ZTx"}

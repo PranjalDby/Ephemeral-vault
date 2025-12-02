@@ -9,3 +9,49 @@ sites/site*/public/theme/
 textpattern/
 HISTORY.txt
 README.txt
+.htaccess
+css.php
+rpc/
+sites/site*/admin/
+sites/site*/private/
+sites/site*/public/admin/
+sites/site*/public/setup/
+sites/site*/public/theme/
+textpattern/
+HISTORY.txt
+README.txt
+./*.txt
+../*.txt
+# Rust / Cargo
+target/
+Cargo.lock
+**/*.rs.bk
+
+# Anchor
+.anchor/
+keys/
+**/idl.json
+**/node_modules/
+.solana/
+
+# Build artifacts
+*.so
+*.a
+*.dylib
+
+# Logs
+*.log
+
+# Generated Program Keys
+**/target/
+**/program-keypair.json
+
+# VSCode / JetBrains / MacOS noise
+.vscode/
+.idea/
+.DS_Store
+
+# Backend local runtime files
+backend/tmp/
+backend/config/
+backend/target/

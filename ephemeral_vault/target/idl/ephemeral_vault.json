@@ -1,0 +1,308 @@
+{
+  "address": "2Y2AseLPmKvaGRXsU4yB3hjjMgXyhh9Y4LVgsgkSzCoT",
+  "metadata": {
+    "name": "ephemeral_vault",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "create_ephemeral_vault",
+      "discriminator": [
+        97,
+        118,
+        149,
+        230,
+        158,
+        6,
+        238,
+        26
+      ],
+      "accounts": [
+        {
+          "name": "parent_wallet",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "ephemeral_wallet"
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "parent_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "session_duration",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "deposit_sol",
+      "discriminator": [
+        108,
+        81,
+        78,
+        117,
+        125,
+        155,
+        56,
+        200
+      ],
+      "accounts": [
+        {
+          "name": "parent_wallet",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "parent_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "place_trade",
+      "docs": [
+        "Open or update a perpetual futures position using the ephemeral wallet.",
+        "No SOL transfers needed here — trade is purely risk accounting."
+      ],
+      "discriminator": [
+        102,
+        39,
+        166,
+        38,
+        98,
+        171,
+        190,
+        242
+      ],
+      "accounts": [
+        {
+          "name": "parent_wallet",
+          "writable": true
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "parent_wallet"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ephemeral_wallet",
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "size",
+          "type": "i64"
+        },
+        {
+          "name": "price",
+          "type": "i64"
+        }
+      ]
+    },
+    {
+      "name": "revoke_session",
+      "docs": [
+        "Parent wallet can revoke the trading session before expiry.",
+        "This makes the ephemeral wallet lose authority immediately."
+      ],
+      "discriminator": [
+        86,
+        92,
+        198,
+        120,
+        144,
+        2,
+        7,
+        194
+      ],
+      "accounts": [
+        {
+          "name": "parent_wallet",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  50
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "parent_wallet"
+              }
+            ]
+          }
+        }
+      ],
+      "args": []
+    }
+  ],
+  "accounts": [
+    {
+      "name": "VaultAccount",
+      "discriminator": [
+        230,
+        251,
+        241,
+        83,
+        139,
+        202,
+        93,
+        28
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "SessionExpired",
+      "msg": "Session expired"
+    }
+  ],
+  "types": [
+    {
+      "name": "VaultAccount",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "parent_wallet",
+            "type": "pubkey"
+          },
+          {
+            "name": "ephemeral_wallet",
+            "type": "pubkey"
+          },
+          {
+            "name": "session_expires_at",
+            "type": "i64"
+          },
+          {
+            "name": "position_size",
+            "type": "i64"
+          },
+          {
+            "name": "entry_price",
+            "type": "i64"
+          },
+          {
+            "name": "bump",
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
