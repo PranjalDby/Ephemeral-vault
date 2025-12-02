@@ -1,7 +1,7 @@
 use anchor_lang::prelude::*;
 
 // this file contains the Anchor Program for our solena engine
-declare_id!("2Y2AseLPmKvaGRXsU4yB3hjjMgXyhh9Y4LVgsgkSzCoT");
+declare_id!("<program id>");
 
 #[program]
 pub mod ephemeral_vault {
