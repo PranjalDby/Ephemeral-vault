@@ -1,0 +1,24 @@
+# Enforce LF line endings consistently across platforms
+* text=auto eol=lf
+
+# Rust source files — show in diffs & GitHub Linguist stats
+*.rs linguist-language=Rust
+*.toml linguist-language=Rust
+
+# Ignore generated binary artifacts from Linguist
+*.so linguist-generated
+*.a linguist-generated
+*.dylib linguist-generated
+
+# Ignore Anchor / build artifacts from Linguist
+target/* linguist-generated
+**/idl.json linguist-generated
+**/types/* linguist-generated
+.anchor/* linguist-generated
+
+# Ignore frontend build artifacts (if future UI)
+dist/* linguist-generated
+build/* linguist-generated
+
+# Ignore JSON program keys so they don't appear in diffs
+**/program-keypair.json linguist-generated
