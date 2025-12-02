@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-ephemeral_vault = "2Y2AseLPmKvaGRXsU4yB3hjjMgXyhh9Y4LVgsgkSzCoT"
+ephemeral_vault = "Vault-id"
 [registry]
 url = "https://api.apr.dev"
 
